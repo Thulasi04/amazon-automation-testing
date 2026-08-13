@@ -3,3 +3,5 @@ class TestLogin:
         pass
     def test_login(self):
         pass
+
+test = TestLogin()
