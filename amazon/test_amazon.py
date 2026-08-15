@@ -1,11 +1,9 @@
 from playwright.sync_api import Page
-def test_amazon_login(page: Page):
+
+def test_amazon(page:Page):
     page.goto("https://www.amazon.com/")
-    title = page.title()
-    print(title)
-
-def test_gmail_login(page):
-    page.goto("https://www.gmail.com/")
-    title = page.title()
-    print(title)
-
+    page.locator("//*[contains(text(),'Account & Lists')]").click()
+    #auto waiting
+    page.locator("[type='email']").type("Nagendran")
+    page.locator("[type='submit']").click()
+    page.locator("//*[contains(text(),'Invalid email ')]").is_visible()
